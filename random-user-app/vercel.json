@@ -1,4 +1,5 @@
 {
   "version": 2,
-  "rootDirectory": "random-user-app"
+  "buildCommand": "next build",
+  "outputDirectory": ".next"
 } 
