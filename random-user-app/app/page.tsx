@@ -7,13 +7,15 @@ import { fetchUsers } from '../lib/api';
 export default async function Home() {
   let users: User[] = [];
   let isLoading = true;
+  let error: string | null = null;
 
   try {
     const data: ApiResponse = await fetchUsers();
     users = data.results;
     isLoading = false;
-  } catch (error) {
-    console.error('Failed to fetch users:', error);
+  } catch (err) {
+    console.error('Failed to fetch users:', err);
+    error = 'Failed to load users. Please try again later.';
     isLoading = false;
   }
 
@@ -21,6 +23,14 @@ export default async function Home() {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="text-red-600 text-lg font-medium">{error}</div>
       </div>
     );
   }

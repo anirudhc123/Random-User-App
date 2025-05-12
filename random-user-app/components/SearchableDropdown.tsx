@@ -34,7 +34,6 @@ export default function SearchableDropdown() {
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (!isOpen) return;
-
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       setFocusedIndex((prev) => (prev < filteredUsers.length - 1 ? prev + 1 : prev));
@@ -69,7 +68,7 @@ export default function SearchableDropdown() {
   }, [focusedIndex]);
 
   return (
-    <div className="relative w-full max-w-md dropdown">
+    <div className="relative w-full max-w-md mx-auto dropdown">
       <input
         type="text"
         value={search}
@@ -77,7 +76,7 @@ export default function SearchableDropdown() {
         onFocus={() => setIsOpen(true)}
         onKeyDown={handleKeyDown}
         placeholder="Search by first name..."
-        className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 placeholder-gray-500 text-base"
+        className="w-full p-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 placeholder-gray-600 font-medium text-base"
         aria-label="Search users"
         aria-autocomplete="list"
         ref={inputRef}
