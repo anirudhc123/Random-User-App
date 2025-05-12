@@ -1,0 +1,50 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+/* Global styles */
+body {
+  @apply font-sans antialiased text-gray-900 bg-gray-100;
+}
+
+input, button {
+  @apply transition-all duration-200;
+}
+
+/* Custom component styles */
+.card {
+  @apply bg-white rounded-2xl shadow-lg p-10 border border-blue-100;
+}
+
+.btn {
+  @apply px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Gradient border for card */
+.card {
+  background: linear-gradient(to bottom right, #DBEAFE, #EFF6FF);
+  border: 1px solid transparent;
+}
+
+/* Hover and transform effects */
+.card:hover {
+  @apply shadow-2xl;
+  transform: scale(1.05);
+}
